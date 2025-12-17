@@ -43,7 +43,6 @@ class SauceDemoLogin:
     # 2. Click the Logout button
     def openhamburger(self):
         self.driver.find_element(By.XPATH, self.hamburger_menu_button).click()
-
     def logout(self):
         self.openhamburger()
         self.driver.find_element(By.XPATH, self.logoutbutton).click()
