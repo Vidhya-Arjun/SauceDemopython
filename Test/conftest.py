@@ -10,6 +10,9 @@ def browser_start():
     options = Options()
     options.add_argument("--start-maximized")
 
+    options.add_argument("--incognito")
+
+
     driver = webdriver.Chrome(options=options)
 
     driver.get("https://www.saucedemo.com/")

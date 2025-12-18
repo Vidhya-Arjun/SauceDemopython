@@ -9,8 +9,10 @@ class SauceDemoLogin:
     passwordinput = "password"
     loginbutton = "//input[@id = 'login-button']"
     error_message ="//h3[@data-test='error']"
-    hamburger_menu_button = "//div[@class='bm-burger-button']/button[@id='react-burger-menu-btn']"
+    hamburger_menu_button = "//button[@id='react-burger-menu-btn']"
     logoutbutton = "//nav[@class='bm-item-list']/a[@id='logout_sidebar_link']"
+
+
 
 
     def __init__(self,driver):
@@ -42,8 +44,13 @@ class SauceDemoLogin:
     # 1. open the hamburger menu,
     # 2. Click the Logout button
     def openhamburger(self):
-        self.driver.find_element(By.XPATH, self.hamburger_menu_button).click()
+        self.wait.until(EC.element_to_be_clickable((By.XPATH,self.hamburger_menu_button))).click()
+
     def logout(self):
         self.openhamburger()
-        self.driver.find_element(By.XPATH, self.logoutbutton).click()
+
+        self.wait.until(EC.element_to_be_clickable((By.XPATH,self.logoutbutton))).click()
+
+
+
 

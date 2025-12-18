@@ -85,13 +85,19 @@ def test_visual_user_validation_login(browser_start):
 
 def test_log_out_user_validation_login(browser_start):
     driver = browser_start
+
     test_valid_url(driver)
     test_user_validation_test_login(driver)
-    driver.find_element(By.XPATH,"//button[@id='react-burger-menu-btn']").click()
-    driver.find_element(By.XPATH,"//nav[@class='bm-item-list']/child::a[@id='logout_sidebar_link']").click()
+
+    sauce = SauceDemoLogin(driver)
+    sauce.logout()
+
+
     driver.back()
 
-    assert driver.current_url == "https://www.saucedemo.com/", "Incorrect url"
+    assert driver.current_url == "https://www.saucedemo.com/", "User not logged out properly, verify the logout steps"
+    assert driver.get_cookie("session-username") is None, "Incorrect navigation"
+
 
 
 
