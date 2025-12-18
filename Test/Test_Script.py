@@ -100,6 +100,3 @@ def test_log_out_user_validation_login(browser_start):
 
 
 
-
-
-
